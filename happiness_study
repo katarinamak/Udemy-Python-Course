@@ -1,0 +1,18 @@
+import pandas as pd
+from openpyxl import Workbook
+
+# read from a csv file
+data = pd.read_csv("/Users/katarinamakivic/Downloads/World Happiness data/2019.csv")
+
+# remove spaces from column names
+data.columns = data.columns.str.replace(' ', '_')
+
+# print(data.columns)
+# print(data.Overall_rank)
+print(data.head(15))
+
+# write to a csv file
+data.to_csv('My_output', index=False)
+
+# write to Excel file
+data.to_excel('/Users/katarinamakivic/Downloads/Excel_Sample.xlsx', sheet_name='NewSheet')
